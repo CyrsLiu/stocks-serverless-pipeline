@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchlist Top Movers</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <header class="panel-header">
+          <p class="kicker">TRE Team Watchlist</p>
+          <h1>Daily Top Mover</h1>
+          <p class="subtitle">
+            Tracks which ticker moved the most by absolute % change each trading day.
+          </p>
+        </header>
+
+        <div id="status" class="status">Loading latest 7 records...</div>
+
+        <section id="quality-strip" class="quality-strip" aria-label="Data quality">
+          <div class="quality-row">
+            <span class="quality-label">Coverage</span>
+            <span id="coverage-value" class="quality-value">-</span>
+          </div>
+          <div class="quality-row">
+            <span class="quality-label">Market Closed Days (weekends)</span>
+            <span id="closed-days" class="quality-value">-</span>
+          </div>
+          <div class="quality-row">
+            <span class="quality-label">Missing Trading Days</span>
+            <span id="missing-days" class="quality-value">-</span>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Weekly insights">
+          <article class="metric-card">
+            <p class="metric-label">Largest Move This Week</p>
+            <p id="metric-largest" class="metric-value">-</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Most Frequent Winner</p>
+            <p id="metric-frequent" class="metric-value">-</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Avg Absolute Move</p>
+            <p id="metric-average" class="metric-value">-</p>
+          </article>
+        </section>
+
+        <div class="table-wrap">
+          <table aria-label="Top Movers History">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Ticker</th>
+                <th>% Change</th>
+                <th>Close</th>
+              </tr>
+            </thead>
+            <tbody id="movers-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Watchlist: AAPL, MSFT, GOOGL, AMZN, TSLA, NVDA
+      <span id="year"></span>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

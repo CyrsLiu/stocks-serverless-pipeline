@@ -1,0 +1,27 @@
+# Copy this file to terraform.tfvars and set values.
+
+# Core naming, region, and provider config.
+project_name         = "stocks-serverless-pipeline"
+aws_region           = "us-east-1"
+massive_api_key      = "REPLACE_WITH_YOUR_KEY"
+stock_api_base_url   = "https://api.polygon.io"
+schedule_expression  = "cron(10 22 ? * MON-FRI *)"
+partition_key_value  = "WATCHLIST"
+api_stage_name       = "prod"
+frontend_bucket_name = null
+
+# Cost/reliability guardrails.
+lambda_log_retention_days             = 7
+eventbridge_maximum_retry_attempts    = 1
+eventbridge_maximum_event_age_seconds = 3600
+dynamodb_ttl_days                     = 365
+
+# Watchlist symbols evaluated by ingestion.
+watchlist = [
+  "AAPL",
+  "MSFT",
+  "GOOGL",
+  "AMZN",
+  "TSLA",
+  "NVDA"
+]
